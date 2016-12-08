@@ -1,34 +1,51 @@
-var $head, email;
-
 $(window, document, undefined).ready(function() {
-    $head = document.getElementById("head");
-    email = getUrlParameter('email');
-    $head.innerHTML = "New account for '" + email + "'";
+
+  $('input').blur(function() {
+    var $this = $(this);
+    if ($this.val())
+      $this.addClass('used');
+    else
+      $this.removeClass('used');
+  });
+
+    var $email = document.getElementById('email')
+    $email.value = getUrlParameter('email');
+
+  var $ripples = $('.ripples');
+
+  $ripples.on('click.Ripples', function(e) {
+
+    var $this = $(this);
+    var $offset = $this.parent().offset();
+    var $circle = $this.find('.ripplesCircle');
+
+    var x = e.pageX - $offset.left;
+    var y = e.pageY - $offset.top;
+
+    $circle.css({
+      top: y + 'px',
+      left: x + 'px'
+    });
+
+    $this.addClass('is-active');
+
+  });
+
+  $ripples.on('animationend webkitAnimationEnd mozAnimationEnd oanimationend MSAnimationEnd', function(e) {
+  	$(this).removeClass('is-active');
+  });
+
+  document.getElementById('signup').onclick = onclickSignup;
 });
 
-var userid = document.getElementById("userid"),
-  password = document.getElementById("password"),
-  confirm_password = document.getElementById("confirm_password"),
-  singup = document.getElementById("signup");
-
-function validatePassword() {
-  if (password.value != confirm_password.value) {
-    confirm_password.setCustomValidity("Passwords Don't Match");
-  } else {
-    confirm_password.setCustomValidity('');
-  }
-}
-
 function onclickSignup() {
-  redirect_url = "http://www.dexy.io/signup/create_account/"
-    + email + "/" + userid.value + "/" + password.value;
-    
+  var email = document.getElementById('email').value;
+  var userid = document.getElementById('userid').value;
+  var passwd = document.getElementById('passwd').value;
+  var redirect_url = "http://www.dexy.io/signup/create_account/"
+  redirect_url += email + "/" + userid + "/" + passwd;
   window.location.href = redirect_url;
 }
-
-password.onchange = validatePassword;
-confirm_password.onkeyup = validatePassword;
-signup.onclick = onclickSignup;
 
 var getUrlParameter = function getUrlParameter(sParam) {
     var sPageURL = decodeURIComponent(window.location.search.substring(1)),

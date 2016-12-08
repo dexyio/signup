@@ -2,27 +2,36 @@
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Dexy Cloud Sign up</title>
+  <title>Dexy Cloud</title>
 
-  <link rel='stylesheet prefetch' href='https://unpkg.com/purecss@0.6.0/build/pure-min.css'>
-  <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="css/style.css">
+
 </head>
 
 <body>
-  <form class="pure-form" align="center">
-    <fieldset>
-        <h3 id='head'>New Account Form</h3>
-        <input type="text" placeholder="User ID" id="userid" required><br/>
-        <input type="password" placeholder="Password" id="password" required><br/>
-        <input type="password" placeholder="Confirm Password" id="confirm_password" required><br/>
-        <p>
-          <button type="submit" id="signup" class="pure-button pure-button-primary">Sign up</button>
-        </p>
-    </fieldset>
-</form>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <hgroup>
+    <h2>New Account</h2>
+  </hgroup>
+  <form>
+    <div class="group">
+      <input type="mail" class="used" id="email" readonly><span class="highlight"></span><span class="bar"></span>
+      <label>Email</label>
+    </div>
+    <div class="group">
+      <input type="text" id="userid"><span class="highlight"></span><span class="bar"></span>
+      <label>User ID</label>
+    </div>
+    <div class="group">
+      <input type="password" id="passwd"><span class="highlight"></span><span class="bar"></span>
+      <label>Password</label>
+    </div>
+    <button type="button" id="signup" class="button buttonBlue">Sign Up
+      <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+    </button>
+  </form>
 
-    <script src="js/index.js"></script>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src="js/index.js"></script>
 
 </body>
 </html>
