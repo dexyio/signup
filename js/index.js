@@ -42,7 +42,7 @@ function onclickSignup() {
   var email = document.getElementById('email').value;
   var userid = document.getElementById('userid').value;
   var passwd = document.getElementById('passwd').value;
-  var redirect_url = "http://www.dexy.io/signup/new_account/"
+  var redirect_url = "https://www.dexy.io/signup/new_account/"
   redirect_url += email + "/" + userid + "/" + passwd;
   window.location.href = redirect_url;
 }
