@@ -1,3 +1,11 @@
+var $head, email;
+
+$(window, document, undefined).ready(function() {
+    $head = document.getElementById("head");
+    email = getUrlParameter('email');
+    $head.innerHTML = "New account for '" + email + "'";
+});
+
 var userid = document.getElementById("userid"),
   password = document.getElementById("password"),
   confirm_password = document.getElementById("confirm_password"),
@@ -12,7 +20,9 @@ function validatePassword() {
 }
 
 function onclickSignup() {
-  redirect_url = "http://www.dexy.io/signup/create_account/" + userid.value + "/" + password.value;
+  redirect_url = "http://www.dexy.io/signup/create_account/"
+    + email + "/" + userid.value + "/" + password.value;
+    
   window.location.href = redirect_url;
 }
 
@@ -34,9 +44,3 @@ var getUrlParameter = function getUrlParameter(sParam) {
         }
     }
 };
-
-$(window, document, undefined).ready(function() {
-    var head = document.getElementById("head");
-    var email = getUrlParameter('email');
-    head.innerHTML = "New account for '" + email + "'";
-});
