@@ -42,8 +42,8 @@ function onclickSignup() {
   var email = document.getElementById('email').value;
   var userid = document.getElementById('userid').value;
   var passwd = document.getElementById('passwd').value;
-  var redirect_url = "https://www.dexy.io/signup/?_fun=new_account/"
-  redirect_url += email + "/" + userid + "/" + passwd;
+  var redirect_url = "https://www.dexy.io/signup/"
+  redirect_url += email + "/" + userid + "/" + passwd + "/?_fun=new_account"
   window.location.href = redirect_url;
 }
 
